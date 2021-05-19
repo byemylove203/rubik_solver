@@ -4,6 +4,7 @@ import time
 from solution import *
 import tkinter as tk
 import rubiks_cube_3d as cube_3d
+import copy
 
 
 
@@ -104,21 +105,7 @@ cap=cv2.VideoCapture(0)
 cv2.namedWindow('Live Camera')
 
 
-def solve(cube):
-    
-    f=first_layer(cube)
-    #print("after f ",orgcube)
-    s=second_layer(cube)
-    #print("after s",orgcube)
-    t=third_layer(cube)
-    #print("after t",orgcube)
-    efficient(f)
-    #print("after ef ",orgcube)
-    efficient(s)
-    #print("after es ",orgcube)
-    efficient(t)
-    cube_sol = f+s+t
-    return cube_sol
+
 
     
     
@@ -139,17 +126,17 @@ def color_detect(h,s,v):
 
     return 'w'
 
-def draw_stickers(frame,stickers,name):
+def draw_tiles(frame,stickers,name):
         for x,y in stickers[name]:
             cv2.rectangle(frame, (x,y), (x+30, y+30), (255,255,255), 2)
 
-def draw_preview_stickers(frame,stickers):
+def draw_preview_tiles(frame,stickers):
         stick=['f','b','l','r','u','d']
         for name in stick:
             for x,y in stickers[name]:
                 cv2.rectangle(frame, (x,y), (x+40, y+40), (255,255,255), 2)
 
-def texton_preview_stickers(frame,stickers):
+def text_on_tile(frame,stickers):
         stick=['f','b','l','r','u','d']
         for name in stick:
             for x,y in stickers[name]:
@@ -158,43 +145,59 @@ def texton_preview_stickers(frame,stickers):
                 sym,col,x1,y1=colorTexts[name][1][0],colorTexts[name][1][1],colorTexts[name][1][2],colorTexts[name][1][3]             
                 cv2.putText(preview, sym, (x1,y1), font,0.5,col, 1, cv2.LINE_AA)  
 
-def fill_stickers(frame,stickers,sides):    
+def fill_color(frame,stickers,sides):    
     for side,colors in sides.items():
         num=0
         for x,y in stickers[side]:
             cv2.rectangle(frame,(x,y),(x+40,y+40),color[colors[num]],-1)
             num+=1
 
-def show(cube,cube_sol):
-    print(cube)
+def show(cubee,cube_sol):
+    print(cubee)
     rubiks_cube=cube_3d.rubiks_cube
     root = tk.Tk()
     root.geometry("500x500")
     canvas = tk.Canvas(root, height = 400, width = 400)
     canvas.pack()
     #print("after all ",orgcube)
-    cube_3d.three_d_cube_moves(rubiks_cube,cube,0.5,cube_sol,canvas)
-    #root.mainloop()
+    cube_3d.three_d_cube_moves(rubiks_cube,cubee,0.5,cube_sol,canvas)
+    root.mainloop()
 
+def solve(cube):
+    
+    f=first_layer(cube)
+    #print("after f ",cube)
+    s=second_layer(cube)
+    #print("after s",cube)
+    t=third_layer(cube)
+    #print("after t",orgcube)
+    efficient(f)
+    #print("after ef ",orgcube)
+    efficient(s)
+    #print("after es ",orgcube)
+    efficient(t)
+    cube_sol = f+s+t
+    return cube_sol
 
 
 
 if __name__=='__main__':
     preview = np.zeros((700,800,3), np.uint8)
-
+    
     while True:
         hsv=[]
-        cube2=[]
+        cube= []
         current_state=[]
-        ret,img=cap.read()
-        frame = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+        ret,frames=cap.read()
+
+        frame = cv2.cvtColor(frames, cv2.COLOR_BGR2HSV)
         mask = np.zeros(frame.shape, dtype=np.uint8)   
 
-        draw_stickers(img,blocks,'main')
-        draw_stickers(img,blocks,'current')
-        draw_preview_stickers(preview,blocks)
-        fill_stickers(preview,blocks,state)
-        texton_preview_stickers(preview,blocks)
+        draw_tiles(frames,blocks,'main')
+        draw_tiles(frames,blocks,'current')
+        draw_preview_tiles(preview,blocks)
+        fill_color(preview,blocks,state)
+        text_on_tile(preview,blocks)
 
         for i in range(9):
             hsv.append(frame[blocks['main'][i][1]+10][blocks['main'][i][0]+10])
@@ -202,7 +205,7 @@ if __name__=='__main__':
         a=0
         for x,y in blocks['current']:
             color_name=color_detect(hsv[a][0],hsv[a][1],hsv[a][2])
-            cv2.rectangle(img,(x,y),(x+30,y+30),color[color_name],-1)
+            cv2.rectangle(frames,(x,y),(x+30,y+30),color[color_name],-1)
             a+=1
             current_state.append(color_name)
         
@@ -227,12 +230,7 @@ if __name__=='__main__':
         elif k ==ord('b'):
             check_state.append('b')
             state['b']=current_state       
-        elif k == ord('l'): 
-            cube2.append(cube)
-            print("hello",cube2)
-            solved=solve(cube2[0])
-            show(cube,solved)
-        elif k == ord('m'):    
+        elif k == 32:    
             if len(set(check_state))==6:
                 f=state['f']
                 b=state['b']
@@ -240,22 +238,27 @@ if __name__=='__main__':
                 r=state['r']
                 l=state['l']
                 u=state['u']
-                cube= []
                 cube.append(f)
                 cube.append(u)
                 cube.append(r)
                 cube.append(d)
                 cube.append(l)
                 cube.append(b)
-                #try:
-                #solved=solve(cube2)
-                #show(cube,solved)
-                #except:
-                #   print("error in side detection ,you may do not follow sequence or some color not detected well.Try again")
+                orig_cube=copy.deepcopy(cube)
+               
+                try:
+                    solved=solve(cube)
+                    show(orig_cube,solved)
+                except:
+                   print("Quet mat rubik bi loi. Thu quet lai")
             else:
-                print("all side are not scanned check other window for finding which l to be scanned?")
-                print("l to scan:",6-len(set(check_state)))
+                print("Quet mat rubik bi loi. Thu quet lai")
+                print("So mat rubik da quet:",len(set(check_state)))
         cv2.imshow('Preview',preview)
-        cv2.imshow('Live Camera',img[0:500,0:500])
+        cv2.imshow('Live Camera',frames[0:500,0:500])
 
     cv2.destroyAllWindows()
+
+    
+    
+    

@@ -4,7 +4,8 @@ import random
 #cubik=[['b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b'], ['w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w'], ['r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r'], ['y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y'], ['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'], ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']]
 
 
-def single_move(cubik,move):
+def single_move(cube,move):
+    cubik=cube
     if move=='u':
         cubik[0][0],cubik[0][1],cubik[0][2],cubik[0][5],cubik[0][8],cubik[0][7],cubik[0][6],cubik[0][3]=cubik[0][6],cubik[0][3],cubik[0][0],cubik[0][1],cubik[0][2],cubik[0][5],cubik[0][8],cubik[0][7]
         cubik[1][0],cubik[1][1],cubik[1][2],cubik[2][0],cubik[2][1],cubik[2][2],cubik[3][0],cubik[3][1],cubik[3][2],cubik[4][0],cubik[4][1],cubik[4][2]=cubik[2][0],cubik[2][1],cubik[2][2],cubik[3][0],cubik[3][1],cubik[3][2],cubik[4][0],cubik[4][1],cubik[4][2],cubik[1][0],cubik[1][1],cubik[1][2]
@@ -42,7 +43,8 @@ def single_move(cubik,move):
         cubik[5][0],cubik[5][1],cubik[5][2],cubik[5][5],cubik[5][8],cubik[5][7],cubik[5][6],cubik[5][3]=cubik[5][2],cubik[5][5],cubik[5][8],cubik[5][7],cubik[5][6],cubik[5][3],cubik[5][0],cubik[5][1]
         cubik[1][6],cubik[1][7],cubik[1][8],cubik[2][6],cubik[2][7],cubik[2][8],cubik[3][6],cubik[3][7],cubik[3][8],cubik[4][6],cubik[4][7],cubik[4][8]=cubik[2][6],cubik[2][7],cubik[2][8],cubik[3][6],cubik[3][7],cubik[3][8],cubik[4][6],cubik[4][7],cubik[4][8],cubik[1][6],cubik[1][7],cubik[1][8]
 
-def moves(cubik,moves):
+def moves(cube,moves):
+    cubik=cube
     for move in moves:
         single_move(cubik,move)
 
@@ -135,7 +137,8 @@ def find_corner(c1,c2,c3,cubik):
 
     return corner[2*c1_l:2*c1_l+2]+corner[2*c2_l:2*c2_l+2]+corner[2*c3_l:2*c3_l+2]
 
-def first_layer(cubik):
+def first_layer(cube):
+    cubik = cube
     solution=[]
     cross_colours={'w':1,'r':2,'y':3,'o':4}
     num_to_colour={1:'w',2:'r',3:'y',4:'o'}
@@ -270,7 +273,8 @@ def first_layer(cubik):
                 return 'Broken cubik'
     return solution
 
-def second_layer(cubik):
+def second_layer(cube):
+    cubik=cube
     solution=[]
     second_edges=[['w','r'],['w','o'],['y','r'],['y','o']]
     colour_to_num={'w':1,'r':2,'y':3,'o':4,'g':5,'b':0}
@@ -337,7 +341,8 @@ def second_layer(cubik):
                 return 'Broken cubik'
     return solution
 
-def third_layer(cubik):
+def third_layer(cube):
+    cubik=cube
     solution=[]
     cross_loc=[[0,1],[0,5],[0,7],[0,3]]
     blue=[]
