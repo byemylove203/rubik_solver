@@ -145,7 +145,7 @@ def moveU(direction,existing_cube,cube_coords,cube_colours,t,canvas):
 
 
     remaining = draw_part_of_cube(remaining_layers,canvas)
-    frames = 30*t
+    frames = 60*t
     full_angle = angle_coeff*math.pi/2
     frame_angle = full_angle/frames
     # temp_cube_coords = cube_coords
@@ -190,7 +190,7 @@ def moveU(direction,existing_cube,cube_coords,cube_colours,t,canvas):
 
         upper_layer = new_upper_layer
         angle_so_far+=frame_angle
-        time.sleep(0.033)
+        time.sleep(0.05)
         for polygon in upper:
             canvas.delete(polygon)
     # time.sleep(5)
@@ -276,7 +276,7 @@ def moveD(direction,existing_cube,cube_coords,cube_colours,t,canvas):
 
         upper_layer = new_upper_layer
         angle_so_far+=frame_angle
-        time.sleep(0.033)
+        time.sleep(0.05)
         for polygon in upper:
             canvas.delete(polygon)
 
@@ -368,7 +368,7 @@ def moveR(direction,existing_cube,cube_coords,cube_colours,t,canvas):
 
         upper_layer = new_upper_layer
         angle_so_far+=frame_angle
-        time.sleep(0.033)
+        time.sleep(0.05)
         for polygon in upper:
             canvas.delete(polygon)
     # time.sleep(5)
@@ -458,7 +458,7 @@ def moveL(direction,existing_cube,cube_coords,cube_colours,t,canvas):
 
         upper_layer = new_upper_layer
         angle_so_far+=frame_angle
-        time.sleep(0.033)
+        time.sleep(0.05)
         for polygon in upper:
             canvas.delete(polygon)
 
@@ -551,7 +551,7 @@ def moveF(direction,existing_cube,cube_coords,cube_colours,t,canvas):
 
         upper_layer = new_upper_layer
         angle_so_far+=frame_angle
-        time.sleep(0.033)
+        time.sleep(0.05)
         for polygon in upper:
             canvas.delete(polygon)
     # time.sleep(5)
@@ -643,7 +643,7 @@ def moveB(direction,existing_cube,cube_coords,cube_colours,t,canvas):
 
         upper_layer = new_upper_layer
         angle_so_far+=frame_angle
-        time.sleep(0.033)
+        time.sleep(0.05)
         for polygon in upper:
             canvas.delete(polygon)
 
@@ -690,7 +690,9 @@ if __name__ == '__main__':
     canvas = tk.Canvas(root, height = 400, width = 400)
     canvas.pack()
     #git
-    three_d_cube_moves(rubiks_cube,[['w', 'b', 'b', 'w', 'b', 'b', 'w', 'b', 'b'], ['g', 'w', 'w', 'g', 'w', 'w', 'g', 'w', 'w'], ['r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r'], ['y', 'y', 'b', 'y', 'y', 'b', 'y', 'y', 'b'], ['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 
-'o'], ['y', 'g', 'g', 'y', 'g', 'g', 'y', 'g', 'g']],0.5,['l'],canvas)
-    #three_d_cube_moves(rubiks_cube,[['b', 'b', 'w', 'b', 'b', 'w', 'b', 'b', 'w'], ['w', 'w', 'g', 'w', 'w', 'g', 'w', 'w', 'g'], ['r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r'], ['y', 'y', 'b', 'y', 'y', 'b', 'y', 'y', 'b'], ['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'], ['y', 'g', 'g', 'y', 'g', 'g', 'y', 'g', 'g']],0.5,["r"],canvas)
+    #three_d_cube_moves(rubiks_cube,[['w', 'b', 'b', 'w', 'b', 'b', 'w', 'b', 'b'], ['g', 'w', 'w', 'g', 'w', 'w', 'g', 'w', 'w'], ['r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r'], ['y', 'y', 'b', 'y', 'y', 'b', 'y', 'y', 'b'], ['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 
+#'o'], ['y', 'g', 'g', 'y', 'g', 'g', 'y', 'g', 'g']],0.5,['l'],canvas)
+    three_d_cube_moves(rubiks_cube,[['r', 'w', 'y', 'r', 'b', 'w', 'w', 'y', 'o'], ['r', 'b', 'w', 'w', 'w', 'g', 'r', 'r', 'w'], ['b', 'r', 'g', 'r', 'r', 'g', 'b', 'y', 'g'], ['o', 'b', 'y', 'o', 'y', 'g', 'o', 'y', 'y'], ['b', 'b', 'g', 'w', 'o', 'o', 'b', 'b', 'g'], ['y', 'y', 'r', 'o', 'g', 'g', 'o', 'o', 'w']],0.5,['l', "u'", 'f', 'f', "l'", 'u', 'u', 'r', 'r', "u'", 'b', 'b', 'd', "f'", "d'", 'u', 'l', 'l', "u'", "f'", "u'", 'f', 'l', 'u', "l'", 'b', 'u', "b'", 'l', 'u', "l'", "u'", 'l', 'u', "l'", 'u', "l'", "u'", 'l', "f'", 'u', 'f', 'u', 'r', 
+"u'", "r'", 'f', "u'", "f'", "u'", "l'", 'u', 'l', "u'", 'f', "u'", "f'", "u'", "l'", 'u', 'l', 'u', 'u', 'b', "u'", "b'", "u'", "r'", 'u', 'r', 'u', 'u', 'l', "u'", "l'", "u'", "b'", 'u', 'b', 'f', 'u', 'r', "u'", "r'", "f'", "l'", "b'", 'r', 'b', 'l', "b'", "r'", 'b', "f'", 'l', "f'", 'r', 'r', 'f', "l'", "f'", 'r', 'r', 'f', 'f', 'u', "r'", "u'", 'r', "u'", 'r', 'u', 'r', "u'", "r'", 'u', 'r', 'u', 'r', 'r', "u'", "r'", 'u'],canvas)
+
     root.mainloop()
