@@ -1,50 +1,50 @@
-#Rubik's Cube Solver
+#Rubik's cubik Solver
 import random
 
-#cube=[['b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b'], ['w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w'], ['r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r'], ['y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y'], ['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'], ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']]
+#cubik=[['b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b'], ['w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w'], ['r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r'], ['y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y'], ['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'], ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']]
 
 
-def single_move(cube,move):
+def single_move(cubik,move):
     if move=='u':
-        cube[0][0],cube[0][1],cube[0][2],cube[0][5],cube[0][8],cube[0][7],cube[0][6],cube[0][3]=cube[0][6],cube[0][3],cube[0][0],cube[0][1],cube[0][2],cube[0][5],cube[0][8],cube[0][7]
-        cube[1][0],cube[1][1],cube[1][2],cube[2][0],cube[2][1],cube[2][2],cube[3][0],cube[3][1],cube[3][2],cube[4][0],cube[4][1],cube[4][2]=cube[2][0],cube[2][1],cube[2][2],cube[3][0],cube[3][1],cube[3][2],cube[4][0],cube[4][1],cube[4][2],cube[1][0],cube[1][1],cube[1][2]
+        cubik[0][0],cubik[0][1],cubik[0][2],cubik[0][5],cubik[0][8],cubik[0][7],cubik[0][6],cubik[0][3]=cubik[0][6],cubik[0][3],cubik[0][0],cubik[0][1],cubik[0][2],cubik[0][5],cubik[0][8],cubik[0][7]
+        cubik[1][0],cubik[1][1],cubik[1][2],cubik[2][0],cubik[2][1],cubik[2][2],cubik[3][0],cubik[3][1],cubik[3][2],cubik[4][0],cubik[4][1],cubik[4][2]=cubik[2][0],cubik[2][1],cubik[2][2],cubik[3][0],cubik[3][1],cubik[3][2],cubik[4][0],cubik[4][1],cubik[4][2],cubik[1][0],cubik[1][1],cubik[1][2]
     elif move=="u'":
-        cube[0][0],cube[0][1],cube[0][2],cube[0][5],cube[0][8],cube[0][7],cube[0][6],cube[0][3]=cube[0][2],cube[0][5],cube[0][8],cube[0][7],cube[0][6],cube[0][3],cube[0][0],cube[0][1]
-        cube[1][0],cube[1][1],cube[1][2],cube[2][0],cube[2][1],cube[2][2],cube[3][0],cube[3][1],cube[3][2],cube[4][0],cube[4][1],cube[4][2]=cube[4][0],cube[4][1],cube[4][2],cube[1][0],cube[1][1],cube[1][2],cube[2][0],cube[2][1],cube[2][2],cube[3][0],cube[3][1],cube[3][2]
+        cubik[0][0],cubik[0][1],cubik[0][2],cubik[0][5],cubik[0][8],cubik[0][7],cubik[0][6],cubik[0][3]=cubik[0][2],cubik[0][5],cubik[0][8],cubik[0][7],cubik[0][6],cubik[0][3],cubik[0][0],cubik[0][1]
+        cubik[1][0],cubik[1][1],cubik[1][2],cubik[2][0],cubik[2][1],cubik[2][2],cubik[3][0],cubik[3][1],cubik[3][2],cubik[4][0],cubik[4][1],cubik[4][2]=cubik[4][0],cubik[4][1],cubik[4][2],cubik[1][0],cubik[1][1],cubik[1][2],cubik[2][0],cubik[2][1],cubik[2][2],cubik[3][0],cubik[3][1],cubik[3][2]
     elif move=='f':
-        cube[1][0],cube[1][1],cube[1][2],cube[1][5],cube[1][8],cube[1][7],cube[1][6],cube[1][3]=cube[1][6],cube[1][3],cube[1][0],cube[1][1],cube[1][2],cube[1][5],cube[1][8],cube[1][7]
-        cube[0][6],cube[0][7],cube[0][8],cube[2][0],cube[2][3],cube[2][6],cube[5][2],cube[5][1],cube[5][0],cube[4][8],cube[4][5],cube[4][2]=cube[4][8],cube[4][5],cube[4][2],cube[0][6],cube[0][7],cube[0][8],cube[2][0],cube[2][3],cube[2][6],cube[5][2],cube[5][1],cube[5][0]
+        cubik[1][0],cubik[1][1],cubik[1][2],cubik[1][5],cubik[1][8],cubik[1][7],cubik[1][6],cubik[1][3]=cubik[1][6],cubik[1][3],cubik[1][0],cubik[1][1],cubik[1][2],cubik[1][5],cubik[1][8],cubik[1][7]
+        cubik[0][6],cubik[0][7],cubik[0][8],cubik[2][0],cubik[2][3],cubik[2][6],cubik[5][2],cubik[5][1],cubik[5][0],cubik[4][8],cubik[4][5],cubik[4][2]=cubik[4][8],cubik[4][5],cubik[4][2],cubik[0][6],cubik[0][7],cubik[0][8],cubik[2][0],cubik[2][3],cubik[2][6],cubik[5][2],cubik[5][1],cubik[5][0]
     elif move=="f'":
-        cube[1][0],cube[1][1],cube[1][2],cube[1][5],cube[1][8],cube[1][7],cube[1][6],cube[1][3]=cube[1][2],cube[1][5],cube[1][8],cube[1][7],cube[1][6],cube[1][3],cube[1][0],cube[1][1]
-        cube[0][6],cube[0][7],cube[0][8],cube[2][0],cube[2][3],cube[2][6],cube[5][2],cube[5][1],cube[5][0],cube[4][8],cube[4][5],cube[4][2]=cube[2][0],cube[2][3],cube[2][6],cube[5][2],cube[5][1],cube[5][0],cube[4][8],cube[4][5],cube[4][2],cube[0][6],cube[0][7],cube[0][8]
+        cubik[1][0],cubik[1][1],cubik[1][2],cubik[1][5],cubik[1][8],cubik[1][7],cubik[1][6],cubik[1][3]=cubik[1][2],cubik[1][5],cubik[1][8],cubik[1][7],cubik[1][6],cubik[1][3],cubik[1][0],cubik[1][1]
+        cubik[0][6],cubik[0][7],cubik[0][8],cubik[2][0],cubik[2][3],cubik[2][6],cubik[5][2],cubik[5][1],cubik[5][0],cubik[4][8],cubik[4][5],cubik[4][2]=cubik[2][0],cubik[2][3],cubik[2][6],cubik[5][2],cubik[5][1],cubik[5][0],cubik[4][8],cubik[4][5],cubik[4][2],cubik[0][6],cubik[0][7],cubik[0][8]
     elif move=='r':
-        cube[2][0],cube[2][1],cube[2][2],cube[2][5],cube[2][8],cube[2][7],cube[2][6],cube[2][3]=cube[2][6],cube[2][3],cube[2][0],cube[2][1],cube[2][2],cube[2][5],cube[2][8],cube[2][7]
-        cube[1][8],cube[1][5],cube[1][2],cube[0][8],cube[0][5],cube[0][2],cube[3][0],cube[3][3],cube[3][6],cube[5][8],cube[5][5],cube[5][2]=cube[5][8],cube[5][5],cube[5][2],cube[1][8],cube[1][5],cube[1][2],cube[0][8],cube[0][5],cube[0][2],cube[3][0],cube[3][3],cube[3][6]
+        cubik[2][0],cubik[2][1],cubik[2][2],cubik[2][5],cubik[2][8],cubik[2][7],cubik[2][6],cubik[2][3]=cubik[2][6],cubik[2][3],cubik[2][0],cubik[2][1],cubik[2][2],cubik[2][5],cubik[2][8],cubik[2][7]
+        cubik[1][8],cubik[1][5],cubik[1][2],cubik[0][8],cubik[0][5],cubik[0][2],cubik[3][0],cubik[3][3],cubik[3][6],cubik[5][8],cubik[5][5],cubik[5][2]=cubik[5][8],cubik[5][5],cubik[5][2],cubik[1][8],cubik[1][5],cubik[1][2],cubik[0][8],cubik[0][5],cubik[0][2],cubik[3][0],cubik[3][3],cubik[3][6]
     elif move=="r'":
-        cube[2][0],cube[2][1],cube[2][2],cube[2][5],cube[2][8],cube[2][7],cube[2][6],cube[2][3]=cube[2][2],cube[2][5],cube[2][8],cube[2][7],cube[2][6],cube[2][3],cube[2][0],cube[2][1]
-        cube[1][8],cube[1][5],cube[1][2],cube[0][8],cube[0][5],cube[0][2],cube[3][0],cube[3][3],cube[3][6],cube[5][8],cube[5][5],cube[5][2]=cube[0][8],cube[0][5],cube[0][2],cube[3][0],cube[3][3],cube[3][6],cube[5][8],cube[5][5],cube[5][2],cube[1][8],cube[1][5],cube[1][2]
+        cubik[2][0],cubik[2][1],cubik[2][2],cubik[2][5],cubik[2][8],cubik[2][7],cubik[2][6],cubik[2][3]=cubik[2][2],cubik[2][5],cubik[2][8],cubik[2][7],cubik[2][6],cubik[2][3],cubik[2][0],cubik[2][1]
+        cubik[1][8],cubik[1][5],cubik[1][2],cubik[0][8],cubik[0][5],cubik[0][2],cubik[3][0],cubik[3][3],cubik[3][6],cubik[5][8],cubik[5][5],cubik[5][2]=cubik[0][8],cubik[0][5],cubik[0][2],cubik[3][0],cubik[3][3],cubik[3][6],cubik[5][8],cubik[5][5],cubik[5][2],cubik[1][8],cubik[1][5],cubik[1][2]
     elif move=='l':
-        cube[4][0],cube[4][1],cube[4][2],cube[4][5],cube[4][8],cube[4][7],cube[4][6],cube[4][3]=cube[4][6],cube[4][3],cube[4][0],cube[4][1],cube[4][2],cube[4][5],cube[4][8],cube[4][7]
-        cube[1][6],cube[1][3],cube[1][0],cube[0][6],cube[0][3],cube[0][0],cube[3][2],cube[3][5],cube[3][8],cube[5][6],cube[5][3],cube[5][0]=cube[0][6],cube[0][3],cube[0][0],cube[3][2],cube[3][5],cube[3][8],cube[5][6],cube[5][3],cube[5][0],cube[1][6],cube[1][3],cube[1][0]
+        cubik[4][0],cubik[4][1],cubik[4][2],cubik[4][5],cubik[4][8],cubik[4][7],cubik[4][6],cubik[4][3]=cubik[4][6],cubik[4][3],cubik[4][0],cubik[4][1],cubik[4][2],cubik[4][5],cubik[4][8],cubik[4][7]
+        cubik[1][6],cubik[1][3],cubik[1][0],cubik[0][6],cubik[0][3],cubik[0][0],cubik[3][2],cubik[3][5],cubik[3][8],cubik[5][6],cubik[5][3],cubik[5][0]=cubik[0][6],cubik[0][3],cubik[0][0],cubik[3][2],cubik[3][5],cubik[3][8],cubik[5][6],cubik[5][3],cubik[5][0],cubik[1][6],cubik[1][3],cubik[1][0]
     elif move=="l'":
-        cube[4][0],cube[4][1],cube[4][2],cube[4][5],cube[4][8],cube[4][7],cube[4][6],cube[4][3]=cube[4][2],cube[4][5],cube[4][8],cube[4][7],cube[4][6],cube[4][3],cube[4][0],cube[4][1]
-        cube[1][6],cube[1][3],cube[1][0],cube[0][6],cube[0][3],cube[0][0],cube[3][2],cube[3][5],cube[3][8],cube[5][6],cube[5][3],cube[5][0]=cube[5][6],cube[5][3],cube[5][0],cube[1][6],cube[1][3],cube[1][0],cube[0][6],cube[0][3],cube[0][0],cube[3][2],cube[3][5],cube[3][8]
+        cubik[4][0],cubik[4][1],cubik[4][2],cubik[4][5],cubik[4][8],cubik[4][7],cubik[4][6],cubik[4][3]=cubik[4][2],cubik[4][5],cubik[4][8],cubik[4][7],cubik[4][6],cubik[4][3],cubik[4][0],cubik[4][1]
+        cubik[1][6],cubik[1][3],cubik[1][0],cubik[0][6],cubik[0][3],cubik[0][0],cubik[3][2],cubik[3][5],cubik[3][8],cubik[5][6],cubik[5][3],cubik[5][0]=cubik[5][6],cubik[5][3],cubik[5][0],cubik[1][6],cubik[1][3],cubik[1][0],cubik[0][6],cubik[0][3],cubik[0][0],cubik[3][2],cubik[3][5],cubik[3][8]
     elif move=='b':
-        cube[3][0],cube[3][1],cube[3][2],cube[3][5],cube[3][8],cube[3][7],cube[3][6],cube[3][3]=cube[3][6],cube[3][3],cube[3][0],cube[3][1],cube[3][2],cube[3][5],cube[3][8],cube[3][7]
-        cube[0][2],cube[0][1],cube[0][0],cube[4][0],cube[4][3],cube[4][6],cube[5][6],cube[5][7],cube[5][8],cube[2][8],cube[2][5],cube[2][2]=cube[2][8],cube[2][5],cube[2][2],cube[0][2],cube[0][1],cube[0][0],cube[4][0],cube[4][3],cube[4][6],cube[5][6],cube[5][7],cube[5][8]
+        cubik[3][0],cubik[3][1],cubik[3][2],cubik[3][5],cubik[3][8],cubik[3][7],cubik[3][6],cubik[3][3]=cubik[3][6],cubik[3][3],cubik[3][0],cubik[3][1],cubik[3][2],cubik[3][5],cubik[3][8],cubik[3][7]
+        cubik[0][2],cubik[0][1],cubik[0][0],cubik[4][0],cubik[4][3],cubik[4][6],cubik[5][6],cubik[5][7],cubik[5][8],cubik[2][8],cubik[2][5],cubik[2][2]=cubik[2][8],cubik[2][5],cubik[2][2],cubik[0][2],cubik[0][1],cubik[0][0],cubik[4][0],cubik[4][3],cubik[4][6],cubik[5][6],cubik[5][7],cubik[5][8]
     elif move=="b'":
-        cube[3][0],cube[3][1],cube[3][2],cube[3][5],cube[3][8],cube[3][7],cube[3][6],cube[3][3]=cube[3][2],cube[3][5],cube[3][8],cube[3][7],cube[3][6],cube[3][3],cube[3][0],cube[3][1]
-        cube[0][2],cube[0][1],cube[0][0],cube[4][0],cube[4][3],cube[4][6],cube[5][6],cube[5][7],cube[5][8],cube[2][8],cube[2][5],cube[2][2]=cube[4][0],cube[4][3],cube[4][6],cube[5][6],cube[5][7],cube[5][8],cube[2][8],cube[2][5],cube[2][2],cube[0][2],cube[0][1],cube[0][0]
+        cubik[3][0],cubik[3][1],cubik[3][2],cubik[3][5],cubik[3][8],cubik[3][7],cubik[3][6],cubik[3][3]=cubik[3][2],cubik[3][5],cubik[3][8],cubik[3][7],cubik[3][6],cubik[3][3],cubik[3][0],cubik[3][1]
+        cubik[0][2],cubik[0][1],cubik[0][0],cubik[4][0],cubik[4][3],cubik[4][6],cubik[5][6],cubik[5][7],cubik[5][8],cubik[2][8],cubik[2][5],cubik[2][2]=cubik[4][0],cubik[4][3],cubik[4][6],cubik[5][6],cubik[5][7],cubik[5][8],cubik[2][8],cubik[2][5],cubik[2][2],cubik[0][2],cubik[0][1],cubik[0][0]
     elif move=='d':
-        cube[5][0],cube[5][1],cube[5][2],cube[5][5],cube[5][8],cube[5][7],cube[5][6],cube[5][3]=cube[5][6],cube[5][3],cube[5][0],cube[5][1],cube[5][2],cube[5][5],cube[5][8],cube[5][7]
-        cube[1][6],cube[1][7],cube[1][8],cube[2][6],cube[2][7],cube[2][8],cube[3][6],cube[3][7],cube[3][8],cube[4][6],cube[4][7],cube[4][8]=cube[4][6],cube[4][7],cube[4][8],cube[1][6],cube[1][7],cube[1][8],cube[2][6],cube[2][7],cube[2][8],cube[3][6],cube[3][7],cube[3][8]
+        cubik[5][0],cubik[5][1],cubik[5][2],cubik[5][5],cubik[5][8],cubik[5][7],cubik[5][6],cubik[5][3]=cubik[5][6],cubik[5][3],cubik[5][0],cubik[5][1],cubik[5][2],cubik[5][5],cubik[5][8],cubik[5][7]
+        cubik[1][6],cubik[1][7],cubik[1][8],cubik[2][6],cubik[2][7],cubik[2][8],cubik[3][6],cubik[3][7],cubik[3][8],cubik[4][6],cubik[4][7],cubik[4][8]=cubik[4][6],cubik[4][7],cubik[4][8],cubik[1][6],cubik[1][7],cubik[1][8],cubik[2][6],cubik[2][7],cubik[2][8],cubik[3][6],cubik[3][7],cubik[3][8]
     elif move=="d'":
-        cube[5][0],cube[5][1],cube[5][2],cube[5][5],cube[5][8],cube[5][7],cube[5][6],cube[5][3]=cube[5][2],cube[5][5],cube[5][8],cube[5][7],cube[5][6],cube[5][3],cube[5][0],cube[5][1]
-        cube[1][6],cube[1][7],cube[1][8],cube[2][6],cube[2][7],cube[2][8],cube[3][6],cube[3][7],cube[3][8],cube[4][6],cube[4][7],cube[4][8]=cube[2][6],cube[2][7],cube[2][8],cube[3][6],cube[3][7],cube[3][8],cube[4][6],cube[4][7],cube[4][8],cube[1][6],cube[1][7],cube[1][8]
+        cubik[5][0],cubik[5][1],cubik[5][2],cubik[5][5],cubik[5][8],cubik[5][7],cubik[5][6],cubik[5][3]=cubik[5][2],cubik[5][5],cubik[5][8],cubik[5][7],cubik[5][6],cubik[5][3],cubik[5][0],cubik[5][1]
+        cubik[1][6],cubik[1][7],cubik[1][8],cubik[2][6],cubik[2][7],cubik[2][8],cubik[3][6],cubik[3][7],cubik[3][8],cubik[4][6],cubik[4][7],cubik[4][8]=cubik[2][6],cubik[2][7],cubik[2][8],cubik[3][6],cubik[3][7],cubik[3][8],cubik[4][6],cubik[4][7],cubik[4][8],cubik[1][6],cubik[1][7],cubik[1][8]
 
-def moves(cube,moves):
+def moves(cubik,moves):
     for move in moves:
-        single_move(cube,move)
+        single_move(cubik,move)
 
 def orientation(mov,front,top):
     front=front.lower()
@@ -109,20 +109,20 @@ def orientation(mov,front,top):
         algo.append(key[m])
     return algo
 
-def find_edge(c1,c2,cube):
+def find_edge(c1,c2,cubik):
     edges=[[5,1,1,7],[5,5,2,7],[5,7,3,7],[5,3,4,7],[1,5,2,3],[2,5,3,3],[3,5,4,3],[4,5,1,3],[0,1,3,1],[0,3,4,1],[0,5,2,1],[0,7,1,1]]
     for edge in edges:
-        e=[cube[edge[0]][edge[1]],cube[edge[2]][edge[3]]]
+        e=[cubik[edge[0]][edge[1]],cubik[edge[2]][edge[3]]]
         if (c1 in e) and (c2 in e):
             break
     if c1!=e[0]:
         edge[0],edge[1],edge[2],edge[3]=edge[2],edge[3],edge[0],edge[1]
     return edge
 
-def find_corner(c1,c2,c3,cube):
+def find_corner(c1,c2,c3,cubik):
     corners=[[5,0,1,6,4,8],[5,2,1,8,2,6],[5,6,3,8,4,6],[5,8,2,8,3,6],[0,0,3,2,4,0],[0,2,2,2,3,0],[0,6,1,0,4,2],[0,8,1,2,2,0]]
     for corner in corners:
-        c=[cube[corner[0]][corner[1]],cube[corner[2]][corner[3]],cube[corner[4]][corner[5]]]
+        c=[cubik[corner[0]][corner[1]],cubik[corner[2]][corner[3]],cubik[corner[4]][corner[5]]]
         if (c1 in c) and (c2 in c) and (c3 in c):
             break
     for index in range(3):
@@ -135,14 +135,14 @@ def find_corner(c1,c2,c3,cube):
 
     return corner[2*c1_l:2*c1_l+2]+corner[2*c2_l:2*c2_l+2]+corner[2*c3_l:2*c3_l+2]
 
-def first_layer(cube):
+def first_layer(cubik):
     solution=[]
     cross_colours={'w':1,'r':2,'y':3,'o':4}
     num_to_colour={1:'w',2:'r',3:'y',4:'o'}
     free_to_move=[1,2,3,4]
     for colour in cross_colours:
-        location=find_edge('g',colour,cube)
-        broken_cube=0
+        location=find_edge('g',colour,cubik)
+        broken_cubik=0
         while (location[2:4]!=[cross_colours[colour],7]):
             semi_sol=[]
             if location[0]==0:
@@ -192,19 +192,19 @@ def first_layer(cube):
                 else:
                     semi_sol+=orientation([{3:"f'",5:'f'}[location[1]]],num_to_colour[location[2]],'g')
 
-            moves(cube,semi_sol)
-            location=find_edge('g',colour,cube)
+            moves(cubik,semi_sol)
+            location=find_edge('g',colour,cubik)
             solution+=semi_sol
-            broken_cube+=1
-            if broken_cube>3:
-                return 'Broken Cube!!'
+            broken_cubik+=1
+            if broken_cubik>3:
+                return 'Broken cubik!!'
 
         free_to_move.remove(cross_colours[colour])
 
     corner_pos={'wr':8,'ry':2,'yo':0,'ow':6}
     for corner in corner_pos:
-        location=find_corner('g',corner[0],corner[1],cube)
-        broken_cube=0
+        location=find_corner('g',corner[0],corner[1],cubik)
+        broken_cubik=0
         while [location[0],location[2]]!=[5,cross_colours[corner[0]]]:
             semi_sol=[]
             if location[0]==5:
@@ -246,38 +246,38 @@ def first_layer(cube):
                         semi_sol+=orientation(['l','d',"l'"],front,'g')
                 else:
                     sol=[]
-                    broken_cube2=0
+                    broken_cubik2=0
                     while loc_on_blue!=corner_pos[corner]:
-                        moves(cube,['u'])
+                        moves(cubik,['u'])
                         sol.append('u')
-                        location=find_corner('g',corner[0],corner[1],cube)
+                        location=find_corner('g',corner[0],corner[1],cubik)
                         for i in [0,2,4]:
                             if location[i]==0:
                                 loc_on_blue=location[i+1]
                                 break
-                        broken_cube2+=1
-                        if broken_cube2>3:
-                            return 'Broken Cube'
+                        broken_cubik2+=1
+                        if broken_cubik2>3:
+                            return 'Broken cubik'
                     if len(sol)==3:
                         solution+=["u'"]
                     else:
                         solution+=sol
-            moves(cube,semi_sol)
+            moves(cubik,semi_sol)
             solution+=semi_sol
-            location=find_corner('g',corner[0],corner[1],cube)
-            broken_cube+=1
-            if broken_cube>3:
-                return 'Broken Cube'
+            location=find_corner('g',corner[0],corner[1],cubik)
+            broken_cubik+=1
+            if broken_cubik>3:
+                return 'Broken cubik'
     return solution
 
-def second_layer(cube):
+def second_layer(cubik):
     solution=[]
     second_edges=[['w','r'],['w','o'],['y','r'],['y','o']]
     colour_to_num={'w':1,'r':2,'y':3,'o':4,'g':5,'b':0}
     num_to_colour={1:'w',2:'r',3:'y',4:'o',5:'g',0:'b'}
     for edge in second_edges:
-        location=find_edge(edge[0],edge[1],cube)
-        broken_cube=0
+        location=find_edge(edge[0],edge[1],cubik)
+        broken_cubik=0
         while [location[0],location[2]]!=[colour_to_num[edge[0]],colour_to_num[edge[1]]]:
             semi_sol=[]
             on_top=0
@@ -288,16 +288,16 @@ def second_layer(cube):
             if on_top:
                 if i==0:
                     edge[0],edge[1]=edge[1],edge[0]
-                location=find_edge(edge[0],edge[1],cube)
+                location=find_edge(edge[0],edge[1],cubik)
                 sol=[]
-                broken_cube2=0
+                broken_cubik2=0
                 while location[0]!=colour_to_num[edge[0]]:
-                    moves(cube,['u'])
+                    moves(cubik,['u'])
                     sol.append('u')
-                    location=find_edge(edge[0],edge[1],cube)
-                    broken_cube2+=1
-                    if broken_cube2>3:
-                        return 'Broken Cube'
+                    location=find_edge(edge[0],edge[1],cubik)
+                    broken_cubik2+=1
+                    if broken_cubik2>3:
+                        return 'Broken cubik'
                 if len(sol)==3:
                     solution.append("u'")
                 else:
@@ -311,12 +311,12 @@ def second_layer(cube):
                 upper_edges=[[0,1,3,1],[0,3,4,1],[0,5,2,1],[0,7,1,1]]
                 broke = 1
                 for upper_edge in upper_edges:
-                    if cube[upper_edge[0]][upper_edge[1]]=='b' or cube[upper_edge[2]][upper_edge[3]]=='b':
+                    if cubik[upper_edge[0]][upper_edge[1]]=='b' or cubik[upper_edge[2]][upper_edge[3]]=='b':
                         blue_edge=upper_edge[2]
                         broke = 0
                         break
                 if broke:
-                    return 'Broken Cube'
+                    return 'Broken cubik'
                 for i in [0,2]:
                     if location[i+1]==5:
                         break
@@ -329,15 +329,15 @@ def second_layer(cube):
                     semi_sol+=orientation([{-1:'u',1:"u'"}[abs(n)/n],'u', 'r', "u'", "r'", "u'", "f'", 'u', 'f'],num_to_colour[location[i]],'b')
                 else:
                     semi_sol+=orientation(['u', 'r', "u'", "r'", "u'", "f'", 'u', 'f'],num_to_colour[location[i]],'b')
-            moves(cube,semi_sol)
+            moves(cubik,semi_sol)
             solution+=semi_sol
-            location=find_edge(edge[0],edge[1],cube)
-            broken_cube+=1
-            if broken_cube>2:
-                return 'Broken Cube'
+            location=find_edge(edge[0],edge[1],cubik)
+            broken_cubik+=1
+            if broken_cubik>2:
+                return 'Broken cubik'
     return solution
 
-def third_layer(cube):
+def third_layer(cubik):
     solution=[]
     cross_loc=[[0,1],[0,5],[0,7],[0,3]]
     blue=[]
@@ -345,10 +345,10 @@ def third_layer(cube):
     colour_to_num={'w':1,'r':2,'y':3,'o':4}
     num_on_cross=0
     for cross in cross_loc:
-        if cube[cross[0]][cross[1]]=='b':
+        if cubik[cross[0]][cross[1]]=='b':
             num_on_cross+=1
             blue.append(cross)
-    broken_cube=0
+    broken_cubik=0
     while num_on_cross!=4:
         semi_sol=[]
         if num_on_cross==0:
@@ -369,33 +369,33 @@ def third_layer(cube):
                 faces={1:'y',5:'r',7:'w',3:'o'}
                 front=faces[cross[1]]
                 semi_sol+=orientation(['f','r','u',"r'","u'","f'"],front,'b')
-        moves(cube,semi_sol)
+        moves(cubik,semi_sol)
         solution+=semi_sol
-        broken_cube+=1
+        broken_cubik+=1
         num_on_cross=0
         for cross in cross_loc:
-            if cube[cross[0]][cross[1]]=='b':
+            if cubik[cross[0]][cross[1]]=='b':
                 num_on_cross+=1
                 blue.append(cross)
-        if broken_cube>1:
-            return 'Broken Cube'
+        if broken_cubik>1:
+            return 'Broken cubik'
 
     corner_loc=[0,2,8,6]
     blue_corners=[]
     for corner in corner_loc:
-        if cube[0][corner]=='b':
+        if cubik[0][corner]=='b':
             blue_corners.append(corner)
-    broken_cube=0
+    broken_cubik=0
     while len(blue_corners)!=4:
         semi_sol=[]
         if len(blue_corners)==0:
             for i in range(1,5):
-                if cube[i][0]=='b' and cube[i][2]=='b':
+                if cubik[i][0]=='b' and cubik[i][2]=='b':
                     headlights=i
                     break
             opp={1:3,2:4,3:1,4:2}
             check=opp[headlights]
-            if cube[check][0]=='b':
+            if cubik[check][0]=='b':
                 check=num_to_colour[check]
                 semi_sol+=orientation(['r','u','u',"r'","u'",'r','u',"r'","u'",'r',"u'","r'"],check,'b')
             else:
@@ -411,7 +411,7 @@ def third_layer(cube):
             else:
                 i-=1
             right_colour={0:3,2:2,8:1,6:4}
-            if cube[right_colour[corner_loc[i]]][2]=='b':
+            if cubik[right_colour[corner_loc[i]]][2]=='b':
                 semi_sol+=orientation(['r','u',"r'",'u','r','u','u',"r'"],num_to_colour[right_colour[corner_loc[i]]],'b')
             else:
                 f=right_colour[corner_loc[i]]
@@ -430,37 +430,37 @@ def third_layer(cube):
                     break
             if front==0:
                 for i in range(1,5):
-                    if cube[i][0]=='b':
+                    if cubik[i][0]=='b':
                         break
                 f=num_to_colour[i]
                 semi_sol+=orientation(["r'",'f','r',"b'","r'","f'",'r','b'],f,'b')
-            elif cube[front][0]=='b':
+            elif cubik[front][0]=='b':
                 front=num_to_colour[front]
                 semi_sol+=orientation(['r','r','d',"r'",'u','u','r',"d'","r'",'u','u',"r'"],front,'b')
             else:
                 front=num_to_colour[front]
                 f={'w':'o','r':'w','y':'r','o':'y'}
                 semi_sol+=orientation(["r'","f'",'l','f','r',"f'","l'",'f'],f[front],'b')
-        moves(cube,semi_sol)
+        moves(cubik,semi_sol)
         solution+=semi_sol
-        broken_cube+=1
+        broken_cubik+=1
         blue_corners=[]
         for corner in corner_loc:
-            if cube[0][corner]=='b':
+            if cubik[0][corner]=='b':
                 blue_corners.append(corner)
-        if broken_cube>1:
-            return 'Broken Cube'
+        if broken_cubik>1:
+            return 'Broken cubik'
     n=0
     loc=5
     for i in range(1,5):
-        if cube[i][0]==cube[i][2]:
+        if cubik[i][0]==cubik[i][2]:
             n+=1
             loc=i
         if n==2:
             loc=0
             break
-    broken_cube=0
-    while loc!=0 or cube[1][0]!='w':
+    broken_cubik=0
+    while loc!=0 or cubik[1][0]!='w':
         semi_sol=[]
         if loc!=0:
             if loc==5:
@@ -468,71 +468,71 @@ def third_layer(cube):
             else:
                 opp={1:'y',2:'o',3:'w',4:'r'}
                 semi_sol=orientation(["r'",'f',"r'",'b','b','r',"f'","r'",'b','b','r','r'],opp[loc],'b')
-        elif cube[1][0]!='w':
-            semi_sol+={'r':["u'"],'y':['u','u'],'o':['u']}[cube[1][0]]
-        moves(cube,semi_sol)
+        elif cubik[1][0]!='w':
+            semi_sol+={'r':["u'"],'y':['u','u'],'o':['u']}[cubik[1][0]]
+        moves(cubik,semi_sol)
         solution+=semi_sol
         n=0
         loc=5
         for i in range(1,5):
-            if cube[i][0]==cube[i][2]:
+            if cubik[i][0]==cubik[i][2]:
                 n+=1
                 loc=i
             if n==2:
                 loc=0
                 break
-        broken_cube+=1
-        if broken_cube>2:
-            return 'Broken Cube'
+        broken_cubik+=1
+        if broken_cubik>2:
+            return 'Broken cubik'
     n=0
     loc=5
     for i in range(1,5):
-        if colour_to_num[cube[i][1]]==i:
+        if colour_to_num[cubik[i][1]]==i:
             n+=1
             loc=i
         if n==2:
             loc=0
             break
-    broken_cube=0
+    broken_cubik=0
     while loc!=0:
         semi_sol=[]
         if loc==5:
-            if cube[1][1]=='y':
+            if cubik[1][1]=='y':
                 semi_sol+=['r','r','l','l','d','r','r','l','l','d','d','r','r','l','l','d','r','r','l','l','d','d','u','u']
-            elif cube[1][1]=='r':
+            elif cubik[1][1]=='r':
                 semi_sol+=['u', "r'", "u'", 'r', "u'", 'r', 'u', 'r', "u'", "r'", 'u', 'r', 'u', 'r', 'r', "u'", "r'", 'u']
             else:
                 semi_sol+=['u', "f'", "u'", 'f', "u'", 'f', 'u', 'f', "u'", "f'", 'u', 'f', 'u', 'f', 'f', "u'", "f'", 'u']
         else:
             check={1:2,2:3,3:4,4:1}
             opp_colour={1:'y',2:'o',3:'w',4:'r'}
-            if cube[check[loc]][1]==opp_colour[check[loc]]:
+            if cubik[check[loc]][1]==opp_colour[check[loc]]:
                 semi_sol+=orientation(['r','r','u','f',"b'",'r','r',"f'",'b','u','r','r'],num_to_colour[check[loc]],'b')
             else:
                 semi_sol+=orientation(['l','l',"u'","f'",'b','l','l','f',"b'","u'",'l','l'],opp_colour[check[loc]],'b')
-        moves(cube,semi_sol)
+        moves(cubik,semi_sol)
         solution+=semi_sol
-        broken_cube+=1
+        broken_cubik+=1
         n=0
         loc=5
         for i in range(1,5):
-            if colour_to_num[cube[i][1]]==i:
+            if colour_to_num[cubik[i][1]]==i:
                 n+=1
                 loc=i
             if n==2:
                 loc=0
                 break
-        if broken_cube>1:
-            return 'Broken Cube'
+        if broken_cubik>1:
+            return 'Broken cubik'
 
     return solution
 
-def shuffle(cube):
+def shuffle(cubik):
     move=['f',"f'",'r',"r'",'l',"l'",'u',"u'",'d',"d'",'b',"b'"]
     shuffle_moves=[]
     for i in range(30):
         shuffle_moves.append(random.choice(move))
-    moves(cube,shuffle_moves)
+    moves(cubik,shuffle_moves)
 
 def efficient(sol):
     i=0
@@ -557,47 +557,47 @@ def efficient(sol):
 
 def test(number):
     for test in range(number):
-        solved_cube=[['b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b'], ['w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w'], ['r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r'], ['y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y'], ['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'], ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']]
-        cube=solved_cube
-        shuffle(cube)
-        shuffled_cube=cube
-        f=first_layer(cube)
-        s=second_layer(cube)
-        t=third_layer(cube)
+        solved_cubik=[['b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b'], ['w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w'], ['r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r'], ['y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y'], ['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'], ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']]
+        cubik=solved_cubik
+        shuffle(cubik)
+        shuffled_cubik=cubik
+        f=first_layer(cubik)
+        s=second_layer(cubik)
+        t=third_layer(cubik)
         if type(f)!=list:
             print()
             print('First Layer Problem!!')
             print()
-            print(shuffled_cube)
+            print(shuffled_cubik)
             break
         if type(s)!=list:
             print()
             print('second Layer Problem!!')
             print()
-            print(shuffled_cube)
+            print(shuffled_cubik)
             break
         if type(t)!=list:
             print()
             print('Third Layer Problem!!')
             print()
-            print(shuffled_cube)
+            print(shuffled_cubik)
             break
         efficient(f)
         efficient(s)
         efficient(t)
-        moves(shuffled_cube,f+s+t)
-        if shuffled_cube!=solved_cube:
+        moves(shuffled_cubik,f+s+t)
+        if shuffled_cubik!=solved_cubik:
             print('Efficiency problem')
             break
 
 if __name__ == '__main__':
-    cube=[['b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b'], ['w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w'], ['r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r'], ['y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y'], ['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'], ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']]
+    cubik=[['b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b'], ['w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w'], ['r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r'], ['y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y'], ['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'], ['g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g']]
     
-    f=first_layer(cube)
-    s=second_layer(cube)
-    t=third_layer(cube)
+    f=first_layer(cubik)
+    s=second_layer(cubik)
+    t=third_layer(cubik)
     if type(f)==str or type(s)==str or type(t)==str:
-        print('The Cube is broken!')
+        print('The cubik is broken!')
     else:
         efficient(f)
         efficient(s)

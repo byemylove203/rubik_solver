@@ -103,57 +103,9 @@ solution=[]
 cap=cv2.VideoCapture(0)
 cv2.namedWindow('Live Camera')
 
-def rotate(side):
-    main=state[side]
-    f=state['f']
-    l=state['l']
-    r=state['r']
-    u=state['u']
-    d=state['d']
-    b=state['b']
-    
-    if side=='f':
-        l[2],l[5],l[8],u[6],u[7],u[8],r[0],r[3],r[6],d[0],d[1],d[2]=d[0],d[1],d[2],l[8],l[5],l[2],u[6],u[7],u[8],r[6],r[3],r[0] 
-    elif side=='u':
-        l[0],l[1],l[2],b[0],b[1],b[2],r[0],r[1],r[2],f[0],f[1],f[2]=f[0],f[1],f[2],l[0],l[1],l[2],b[0],b[1],b[2],r[0],r[1],r[2]
-    elif side=='d':
-        l[6],l[7],l[8],b[6],b[7],b[8],r[6],r[7],r[8],f[6],f[7],f[8]=b[6],b[7],b[8],r[6],r[7],r[8],f[6],f[7],f[8],l[6],l[7],l[8]
-    elif side=='b':
-        l[0],l[3],l[6],u[0],u[1],u[2],r[2],r[5],r[8],d[6],d[7],d[8]=u[2],u[1],u[0],r[2],r[5],r[8],d[8],d[7],d[6],l[0],l[3],l[6] 
-    elif side=='l':
-        f[0],f[3],f[6],d[0],d[3],d[6],b[2],b[5],b[8],u[0],u[3],u[6]=u[0],u[3],u[6],f[0],f[3],f[6],d[6],d[3],d[0],b[8],b[5],b[2]
-    elif side=='r':
-        f[2],f[5],f[8],d[2],d[5],d[8],b[0],b[3],b[6],u[2],u[5],u[8]=d[2],d[5],d[8],b[6],b[3],b[0],u[8],u[5],u[2],f[2],f[5],f[8]
-
-    main[0],main[1],main[2],main[3],main[4],main[5],main[6],main[7],main[8]=main[6],main[3],main[0],main[7],main[4],main[1],main[8],main[5],main[2]
-
-def revrotate(side):
-    main=state[side]
-    f=state['f']
-    l=state['l']
-    r=state['r']
-    u=state['u']
-    d=state['d']
-    b=state['b']
-    
-    if side=='f':
-        l[2],l[5],l[8],u[6],u[7],u[8],r[0],r[3],r[6],d[0],d[1],d[2]=u[8],u[7],u[6],r[0],r[3],r[6],d[2],d[1],d[0],l[2],l[5],l[8]
-    elif side=='u':
-        l[0],l[1],l[2],b[0],b[1],b[2],r[0],r[1],r[2],f[0],f[1],f[2]=b[0],b[1],b[2],r[0],r[1],r[2],f[0],f[1],f[2],l[0],l[1],l[2]
-    elif side=='d':
-        l[6],l[7],l[8],b[6],b[7],b[8],r[6],r[7],r[8],f[6],f[7],f[8]=f[6],f[7],f[8],l[6],l[7],l[8],b[6],b[7],b[8],r[6],r[7],r[8]
-    elif side=='b':
-        l[0],l[3],l[6],u[0],u[1],u[2],r[2],r[5],r[8],d[6],d[7],d[8]=d[6],d[7],d[8],l[6],l[3],l[0],u[0],u[1],u[2],r[8],r[5],r[2] 
-    elif side=='l':
-        f[0],f[3],f[6],d[0],d[3],d[6],b[2],b[5],b[8],u[0],u[3],u[6]=d[0],d[3],d[6],b[8],b[5],b[2],u[0],u[3],u[6],f[0],f[3],f[6]
-    elif side=='r':
-        f[2],f[5],f[8],d[2],d[5],d[8],b[0],b[3],b[6],u[2],u[5],u[8]=u[2],u[5],u[8],f[2],f[5],f[8],d[8],d[5],d[2],b[6],b[3],b[0]
-
-    main[0],main[1],main[2],main[3],main[4],main[5],main[6],main[7],main[8]=main[2],main[5],main[8],main[1],main[4],main[7],main[0],main[3],main[6]
-
 
 def solve(cube):
-    rubiks_cube=cube_3d.rubiks_cube
+    
     f=first_layer(cube)
     #print("after f ",orgcube)
     s=second_layer(cube)
@@ -165,15 +117,8 @@ def solve(cube):
     efficient(s)
     #print("after es ",orgcube)
     efficient(t)
-    print("after et",cube2)
     cube_sol = f+s+t
-    root = tk.Tk()
-    root.geometry("500x500")
-    canvas = tk.Canvas(root, height = 400, width = 400)
-    canvas.pack()
-    #print("after all ",orgcube)
-    cube_3d.three_d_cube_moves(rubiks_cube,cube2,0.5,cube_sol,canvas)
-    #root.mainloop()
+    return cube_sol
 
     
     
@@ -220,38 +165,20 @@ def fill_stickers(frame,stickers,sides):
             cv2.rectangle(frame,(x,y),(x+40,y+40),color[colors[num]],-1)
             num+=1
 
-def process(operation):
-    replace={
-                "F":[rotate,'f'],
-                "F2":[rotate,'f','f'],
-                "F'":[revrotate,'f'],
-                "U":[rotate,'u'],
-                "U2":[rotate,'u','u'],
-                "U'":[revrotate,'u'],
-                "L":[rotate,'l'],
-                "L2":[rotate,'l','l'],
-                "L'":[revrotate,'l'],
-                "R":[rotate,'r'],
-                "R2":[rotate,'r','r'],
-                "R'":[revrotate,'r'],
-                "D":[rotate,'d'],
-                "D2":[rotate,'d','d'],
-                "D'":[revrotate,'d'],
-                "B":[rotate,'b'],
-                "B2":[rotate,'b','b'],
-                "B'":[revrotate,'b']           
-    }    
-    a=0
-    for i in operation:
-        for j in range(len(replace[i])-1):
-            replace[i][0](replace[i][j+1])
-        cv2.putText(preview, i, (700,a+50), font,1,(0,255,0), 1, cv2.LINE_AA)  
-        fill_stickers(preview,blocks,state)
-        solution.append(preview)
-        cv2.imshow('solution',preview)
-        cv2.waitKey()
-        cv2.putText(preview, i, (700,50), font,1,(0,0,0), 1, cv2.LINE_AA)  
-        
+def show(cube,cube_sol):
+    print(cube)
+    rubiks_cube=cube_3d.rubiks_cube
+    root = tk.Tk()
+    root.geometry("500x500")
+    canvas = tk.Canvas(root, height = 400, width = 400)
+    canvas.pack()
+    #print("after all ",orgcube)
+    cube_3d.three_d_cube_moves(rubiks_cube,cube,0.5,cube_sol,canvas)
+    #root.mainloop()
+
+
+
+
 if __name__=='__main__':
     preview = np.zeros((700,800,3), np.uint8)
 
@@ -301,20 +228,10 @@ if __name__=='__main__':
             check_state.append('b')
             state['b']=current_state       
         elif k == ord('l'): 
-            f=state['f']
-            b=state['b']
-            d=state['d']
-            r=state['r']
-            l=state['l']
-            u=state['u']
-            
-            cube2.append(f)
-            cube2.append(u)
-            cube2.append(r)
-            cube2.append(d)
-            cube2.append(l)
-            cube2.append(b)
-            print(cube2)
+            cube2.append(cube)
+            print("hello",cube2)
+            solved=solve(cube2[0])
+            show(cube,solved)
         elif k == ord('m'):    
             if len(set(check_state))==6:
                 f=state['f']
@@ -330,14 +247,11 @@ if __name__=='__main__':
                 cube.append(d)
                 cube.append(l)
                 cube.append(b)
-                
-                try:
-                    solved=solve(cube)
-                    #if solved:
-                        #operation=solved.split(' ')
-                        #process(operation)
-                except:
-                    print("error in side detection ,you may do not follow sequence or some color not detected well.Try again")
+                #try:
+                #solved=solve(cube2)
+                #show(cube,solved)
+                #except:
+                #   print("error in side detection ,you may do not follow sequence or some color not detected well.Try again")
             else:
                 print("all side are not scanned check other window for finding which l to be scanned?")
                 print("l to scan:",6-len(set(check_state)))
