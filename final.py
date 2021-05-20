@@ -5,7 +5,7 @@ from solution import *
 import tkinter as tk
 import rubiks_cube_3d as cube_3d
 import copy
-
+import Rubiks_Cube_Solver as sol
 
 
 time.sleep(1)
@@ -107,11 +107,9 @@ cv2.namedWindow('Live Camera')
 
 
 
-    
-    
 def color_detect(h,s,v):
     #print(h,s,v)
-    if h <7 and s>=100 and v>127 and v<190 or (h>165 and h<180)  :
+    if h <7 and s>=100 and v>127 or (h>165 and h<180)  :
         return 'r'
     elif h>=7 and h <=20 and s>=100:
         return 'o'
@@ -248,7 +246,8 @@ if __name__=='__main__':
                
                 try:
                     solved=solve(cube)
-                    show(orig_cube,solved)
+                    sol.sol_cube(orig_cube,solved)
+                    #show(orig_cube,solved)
                 except:
                    print("Quet mat rubik bi loi. Thu quet lai")
             else:
